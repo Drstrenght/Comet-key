@@ -1,6 +1,6 @@
 local HttpService = game:GetService("HttpService")
 
-local KEY = "PUT_KEY_HERE"
+local KEY = "457705ad7c29f97692e6ea2f76961ea3"
 local URL = "http://localhost:3000"
 
 local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
