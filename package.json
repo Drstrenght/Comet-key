@@ -1,93 +1,16 @@
 {
-  "project": {
-    "name": "SafeKey Roblox Key System",
-    "version": "3.0.0",
-    "description": "Secure key system with admin panel, HWID lock, max sessions, heartbeat, Prometheus/Luraph obfuscation",
-    "author": "Maxx",
-    "deployedOn": "Railway.app",
-    "lastUpdated": "2026-03-17"
+  "name": "safekey",
+  "version": "1.0.0",
+  "description": "Roblox key system with Prometheus obfuscation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
   },
-
-  "server": {
-    "port": 3000,
-    "host": "0.0.0.0",
-    "baseUrl": "https://your-project-name.up.railway.app",
-    "adminPassword": "CHANGE_THIS_VERY_STRONG_PASSWORD",
-    "tokenExpiryMinutes": 5,
-    "heartbeatGraceMinutes": 20,
-    "heartbeatMinIntervalSec": 90,
-    "heartbeatMaxIntervalSec": 300
+  "dependencies": {
+    "express": "^4.19.2",
+    "uuid": "^10.0.0"
   },
-
-  "keyGeneration": {
-    "prefix": "KEY-",
-    "length": 16,
-    "uppercase": true,
-    "defaults": {
-      "days": 30,
-      "maxSessions": 1,
-      "hwidLock": true
-    }
-  },
-
-  "obfuscation": {
-    "enabled": true,
-    "primary": {
-      "provider": "prometheus",
-      "npmPackage": "@gamely/prometheus-cli",
-      "preset": "Strong",
-      "command": "npx @gamely/prometheus-cli - --preset Strong",
-      "notes": "Fresh obfuscation on every /script request"
-    },
-    "fallback": {
-      "provider": "luraph",
-      "enabled": false,
-      "apiKeyEnv": "LURAPH_API_KEY",
-      "preset": "High",
-      "options": {
-        "target": "Luau",
-        "antiTamper": true,
-        "stringEncryption": true,
-        "controlFlow": true,
-        "constantFolding": true,
-        "vmVersion": "latest"
-      }
-    }
-  },
-
-  "railway": {
-    "variables": {
-      "ADMIN_PASSWORD": "CHANGE_THIS_VERY_STRONG_PASSWORD",
-      "PORT": "3000",
-      "NODE_ENV": "production",
-      "NIXPACKS_NODE_VERSION": "20",
-      "LURAPH_API_KEY": "lk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-    },
-    "buildCommand": "npm install",
-    "startCommand": "npm start"
-  },
-
-  "loader": {
-    "baseUrlPlaceholder": "{{BASE_URL}}",
-    "keyPlaceholder": "{{KEY}}",
-    "example": "-- Paste this into your executor\nlocal Key = \"{{KEY}}\"\nlocal BASE_URL = \"{{BASE_URL}}\"\n-- ... rest of loader code ..."
-  },
-
-  "security": {
-    "hwidLock": true,
-    "maxSessionsEnforced": true,
-    "oneTimeTokens": true,
-    "antiUpvalueDump": "high (no persistent script reference)",
-    "heartbeat": "enabled (Fennir-style)",
-    "notes": "Never commit secrets to Git. Use Railway variables."
-  },
-
-  "importantNotes": [
-    "Change ADMIN_PASSWORD before going live!",
-    "Set LURAPH_API_KEY in Railway variables if using Luraph fallback",
-    "Test locally first: http://localhost:3000",
-    "Update loader BASE_URL after deploy",
-    "Railway free tier has 500h/month — upgrade if needed",
-    "Keep server.js and public/ folder structure"
-  ]
+  "engines": {
+    "node": ">=18"
+  }
 }
