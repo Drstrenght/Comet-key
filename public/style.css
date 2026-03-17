@@ -1,42 +1,32 @@
-* { box-sizing:border-box; margin:0; padding:0; }
 body {
-  font-family: system-ui, sans-serif;
-  background:#0f0f1a;
-  color:#e0e0ff;
-  min-height:100vh;
-  padding:20px;
+    background: #0b0f1a;
+    color: white;
+    font-family: Arial;
+    text-align: center;
 }
-.container { max-width:1000px; margin:auto; }
-.card {
-  background:#161624;
-  border-radius:12px;
-  padding:24px;
-  margin-bottom:24px;
-  border:1px solid #2a2a40;
+
+textarea {
+    width: 80%;
+    height: 200px;
+    background: #111827;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
 }
-h1, h2 { color:#a5b4fc; margin-bottom:1rem; }
-.subtitle, .info { color:#94a3b8; margin-bottom:1.5rem; }
-input, textarea {
-  width:100%;
-  padding:12px;
-  background:#1e1e2e;
-  border:1px solid #334155;
-  border-radius:8px;
-  color:#e0e0ff;
-  margin-bottom:12px;
+
+input {
+    margin: 5px;
+    padding: 10px;
+    background: #111827;
+    color: white;
+    border: none;
 }
+
 button {
-  background:#6366f1;
-  color:white;
-  border:none;
-  padding:12px 20px;
-  border-radius:8px;
-  cursor:pointer;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #6a00ff, #00d4ff);
+    border: none;
+    color: white;
+    cursor: pointer;
 }
-button:hover { background:#4f46e5; }
-.form-row { display:flex; gap:12px; }
-.form-row input { flex:1; }
-.hidden { display:none; }
-.error { color:#ff6b6b; }
-.status, .key { margin-top:12px; }
-.header { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; }

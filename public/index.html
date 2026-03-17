@@ -1,49 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SafeKey Admin</title>
-  <link rel="stylesheet" href="/style.css">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Login -->
-    <div id="loginScreen" class="card">
-      <h1>SafeKey</h1>
-      <p class="subtitle">Admin Control Panel</p>
-      <input type="password" id="password" placeholder="Password" />
-      <button onclick="login()">Login</button>
-      <p id="loginError" class="error"></p>
-    </div>
 
-    <!-- Dashboard -->
-    <div id="dashboard" class="hidden">
-      <div class="header">
-        <h1>SafeKey Dashboard</h1>
-        <button onclick="logout()">Logout</button>
-      </div>
+<div id="login">
+    <h2>Login</h2>
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+</div>
 
-      <div class="card">
-        <h2>Update Protected Script</h2>
-        <p class="info">This script will be freshly obfuscated with Prometheus on every load</p>
-        <textarea id="scriptInput" rows="12" placeholder="-- Paste your clean script here..."></textarea>
-        <button onclick="updateScript()">Save & Protect</button>
-        <p id="saveStatus" class="status"></p>
-      </div>
+<div id="dashboard" style="display:none;">
+    <h2>Dashboard</h2>
 
-      <div class="card">
-        <h2>Generate Key</h2>
-        <div class="form-row">
-          <input type="number" id="days" value="30" placeholder="Days" />
-          <input type="number" id="maxSessions" value="1" placeholder="Max sessions" />
-        </div>
-        <button onclick="generateKey()">Generate</button>
-        <p id="keyOutput" class="key"></p>
-      </div>
-    </div>
-  </div>
+    <textarea id="scriptArea" placeholder="Paste Lua script..."></textarea>
+    <button onclick="saveScript()">Save Script</button>
 
-  <script src="/script.js"></script>
+    <h3>Generate Key</h3>
+    <input id="days" type="number" placeholder="Days">
+    <input id="sessions" type="number" placeholder="Max Sessions">
+    <button onclick="genKey()">Generate</button>
+
+    <p id="output"></p>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
