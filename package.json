@@ -1,7 +1,7 @@
 {
   "name": "safekey",
   "version": "1.0.0",
-  "description": "Roblox key system with Prometheus obfuscation",
+  "description": "Roblox key system with admin panel and Prometheus obfuscation",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
